@@ -204,7 +204,7 @@ double valueIteration_recursive(const Eigen::Matrix3d& state, const int& count){
                         if(state_addAction(x,y) == 0){
                             state_Trasition = state_addAction; // set only user element and get other rollout traj.
                             state_Trasition(x,y) = opponent;
-                            rewardSum += (1./(count - 1)) * DISCOUNT_FACTOR * valueIteration_recursive(state_Trasition, count-2);
+                             rewardSum += (1./(count - 1)) * DISCOUNT_FACTOR * valueIteration_recursive(state_Trasition, count-2);
                         }
                     }
                 }

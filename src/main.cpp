@@ -3,13 +3,17 @@
 #include <Eigen/Dense>
 #include <map>
 #include "student_id.hpp"
+//#include "1111student_id.hpp"
+//#include "exercise.hpp"
 
 int main() {
   Eigen::Matrix3d state;
 //  state<<1,0,0,0,-1,0,0,0,0;
-  state << -1,0,-1,1,-1,1,0,0,1;
+//  state << -1,0,-1,1,-1,1,0,0,1;
 //  state <<  -1,1,-1,1,-1,1,1,-1,0;
-//  state<<1,1,1,0,0,0,0,0,0;
+//    state <<0,1,0,0,-1,0,0,0,0;
+  state<<0,0,0,0,0,0,0,0,0;
+//  state<<-1,0,-1,1,-1,1,0,0,1;
   std::cout<<"optimal value for state: "<<getOptimalValue(state)<<std::endl;
   return 0;
 }
