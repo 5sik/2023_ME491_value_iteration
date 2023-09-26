@@ -20,38 +20,8 @@ const double DISCOUNT_FACTOR = 0.98;
 int userCount;
 int opponentCount;
 
-//Eigen::Matrix3d state_addAction;
-//Eigen::Matrix3d state_Trasition;
-//std::uniform_real_distribution<double> action;
-//std::vector<Eigen::Matrix3d> winning_combinations;
-
 Eigen::MatrixXd board = Eigen::MatrixXd::Zero(BOARD_SIZE,BOARD_SIZE);
 
-int checkwin(Eigen::Matrix3d state){
-    //check if the game has ended (base case)
-    //check rows
-    for(int i=0; i<3; i++){
-        if(state(i,0)==1 && state(i,0) == state(i,1) && state(i,1) == state(i,2)){
-            return 1;   //return 1 if winner
-        }
-    }
-    //check columns
-    for(int j=0; j<3; j++){
-        if(state(0,j)==1 && state(0,j) == state(1,j) && state(1,j) == state(2,j)){
-            return 1;   //return 1 if winner
-        }
-    }
-    //check diagonals-"\"
-    if(state(0,0)==1 && state(0,0) == state(1,1) && state(1,1) == state(2,2)){
-        return 1;   //return 1 if winner
-    }
-    //check diagonals-"/"
-    if(state(0,2)==1 && state(0,2) == state(1,1) && state(1,1) == state(2,0)){
-        return 1;   //return 1 if winner
-    }
-
-    return 0; //return 0 if tie or not ended
-}
 
 int zeroCount(const Eigen::Matrix3d& state){
     int count = 0;
@@ -75,35 +45,6 @@ int spaceCount(Eigen::Matrix3d state){
     }
     return spaceMaxNum;
 }
-
-//inline std::pair<int,int> action(const Eigen::Matrix3d& currentState,std::string first){
-//    ///TODO : 만약에 first가 user였으면 user->opponent 취하고 first가 opponent엿으면 처음에는 user만 두고 그다음은 opponent->user
-//    std::vector<std::pair<int,int>> validMoves;
-//    for(int i=0; i<BOARD_SIZE; i++){
-//        for(int j=0; j<BOARD_SIZE; j++){
-//            if(currentState(i,j) == EMPTY)
-//                validMoves.push_back(std::make_pair(i,j));
-//        }
-//    }
-//    zeroCount = validMoves.size();
-//    srand((unsigned int)time(NULL));
-//    int randomIndex = rand() % zeroCount;
-//
-//    /// put the next pair and then put the next state
-////    userCount = (currentState.array() == user).count();
-////    opponentCount = (currentState.array() == opponent).count();
-////    if(userCount > opponentCount) {
-////        currentState(validMoves[randomIndex]) = opponent;
-////    }else if(userCount < opponentCount) {
-////        currentState(validMoves[randomIndex]) = user;
-////    }else{
-////        if(user first) currentState(validMoves[randomIndex]) = user;
-////        else currentState(validMoves[randomIndex]) = opponent;
-////    }
-////
-//    return validMoves[randomIndex]; //return the pair of next random state (row, column)
-//}
-
 
 bool isGameOver(const Eigen::Matrix3d& state){
     /// Win case
@@ -168,16 +109,6 @@ double TerminalReward(const Eigen::Matrix3d& state){
     }
     return 0;
 }
-
-/// TODO Action 하고 step에서 recursive하게 reward찾을 방안생각
-//double step(const Eigen::Matrix3d& state, const std::pair<int,int>& action,
-//            "TerminalState",
-//            "stateTrajectory"){
-//    double TerminalReward = TerminalReward(TerminalState);
-//    절차 : 받은 state에서 1/(0갯수)의 확률로 0을 1 or -1 (turn에 맞게) 바꾸기
-//    그리고 stateTraj[i]에 차곡차곡 저장하
-//
-//}
 
 double valueIteration_recursive(const Eigen::Matrix3d& state, const int& count){
     double rewardSum;
