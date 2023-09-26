@@ -51,7 +51,7 @@ if(_IMPORT_PREFIX STREQUAL "/")
 endif()
 
 # Create imported target Eigen3::Eigen
-add_library(Eigen3::Eigen INTERFACE IMPORTED)
+add_library(Eigen3::Eigen INTERFACE IMPORTED ../../../../../src/student_id.hpp)
 
 set_target_properties(Eigen3::Eigen PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/eigen3"
