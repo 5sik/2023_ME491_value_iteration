@@ -178,6 +178,10 @@ double TerminalReward(const Eigen::Matrix3d& state){
 //    그리고 stateTraj[i]에 차곡차곡 저장하
 //
 //}
+//
+//Eigen::Matrix3d state_addAction;
+//Eigen::Matrix3d state_Trasition;
+
 
 double valueIteration_recursive(const Eigen::Matrix3d& state, const int& count){
     double rewardSum;

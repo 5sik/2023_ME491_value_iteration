@@ -10,8 +10,8 @@ int main() {
 //  state<<1,0,0,0,-1,0,0,0,0;
 //  state << -1,0,-1,1,-1,1,0,0,1;
 //  state <<  -1,1,-1,1,-1,1,1,-1,0;
-//    state <<0,1,0,0,-1,0,0,0,0;
-  state<<1,0,0,0,-1,0,0,0,0;
+//    state <<0,0,0,0,0,0,0,0,0;
+  state<<0,1,0,0,-1,0,0,0,0;
 //  state<<-1,0,-1,1,-1,1,0,0,1;
   std::cout<<"optimal value for state: "<<getOptimalValue(state)<<std::endl;
   return 0;

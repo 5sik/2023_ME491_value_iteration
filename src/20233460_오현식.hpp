@@ -17,8 +17,7 @@ const double REWARD_WIN = 1.0;
 const double REWARD_LOSE = 0;
 const double REWARD_DRAW = 0.5;
 const double DISCOUNT_FACTOR = 0.98;
-int userCount;
-int opponentCount;
+
 
 Eigen::MatrixXd board = Eigen::MatrixXd::Zero(BOARD_SIZE,BOARD_SIZE);
 
